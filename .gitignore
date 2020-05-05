@@ -1,0 +1,9 @@
+keys/
+*.log
+.vagrant
+.terraform
+.DS_Store
+secrets.auto.tfvars
+*.tfstate
+*.tfstate.backup
+secrets.*
