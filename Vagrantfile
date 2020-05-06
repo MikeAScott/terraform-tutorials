@@ -22,7 +22,9 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
 
     instance.vm.provision "shell", inline: <<-SCRIPT
         apt-get update -y
-        apt-get install unzip
+        # Need to set up time sync using chrony to ensure AWS login works properly
+        timedatectl set-timezone Europe/London
+        apt-get install unzip chrony -y
         wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
         unzip terraform_0.12.24_linux_amd64.zip
         mv terraform /usr/local/bin

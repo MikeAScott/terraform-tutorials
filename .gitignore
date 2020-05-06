@@ -7,3 +7,4 @@ secrets.auto.tfvars
 *.tfstate
 *.tfstate.backup
 secrets.*
+*.tfplan
