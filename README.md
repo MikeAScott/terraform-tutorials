@@ -14,11 +14,11 @@ In particular the [Get Started Guide](https://learn.hashicorp.com/terraform/gett
 * Have a look at the Vagrant file
     * The provisioner sets up terraform in Ubuntu
 * Run vagrant
-```
+``` bash
 vagrant up
 ```
 * ssh to terraform box
-```
+``` bash
 vagrant ssh terraform
 terraform
 ```
@@ -43,7 +43,7 @@ Create a file called `secrets.auto.tfvars` in this folder
 (note use this name exactly, it has been excuded from git in the .gitignore file)
 
 Add the following lines to it (ensure you surround the values with quotes)
-```
+``` terraform
 # secrets.auto.tfvars
 aws_access_key_id = "your access key id"
 aws_secret_access_key = "your secret access key"
@@ -80,7 +80,7 @@ Note the changes to [`main.tf`](./main.tf):
 * the dns and public ip of the instance are output
 
 Add an IP whitelist to the secrets file and add your IP to that:
-```
+``` terraform
 # secrets.auto.tfvars
 aws_access_key_id = "your access key id"
 aws_secret_access_key = "your secret access key"
@@ -107,7 +107,7 @@ ssh -i <path-to-sshkey> ec2-user@<public_dns_entry>
 exit 
 ```
 Now try adding a role tag to the instance
-``` json
+``` terraform
 resource "aws_instance" "tomcat" {
   ...
   tags = {
@@ -121,7 +121,7 @@ Then run `terraform apply` again
 Notice that it only changes the instance to add the tag.  This is desired state configuration in  action.
 
 When you are done please tidy up aftery yourself
-```
+``` bash
 terraform destroy
 ```
 You can always recreate everythin in a couple of minutes :)
