@@ -124,7 +124,7 @@ When you are done please tidy up aftery yourself
 ``` bash
 terraform destroy
 ```
-You can always recreate everythin in a couple of minutes :)
+You can always recreate everything in a couple of minutes :)
 
 
 ---
